@@ -10,12 +10,11 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libpng-dev \
         libxml2-dev \
+        libzip-dev \
         zlib1g-dev \
-    && docker-php-ext-install iconv mbstring soap sockets zip \
+    && docker-php-ext-install iconv mbstring mysqli soap sockets zip \
     && docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd \
-    && docker-php-ext-configure mysql --with-mysql=mysqlnd \
-    && docker-php-ext-install mysql
+    && docker-php-ext-install gd
 
 # enable mod_rewrite
 RUN a2enmod rewrite
