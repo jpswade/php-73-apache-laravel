@@ -1,7 +1,7 @@
 FROM php:7.3-apache
 MAINTAINER James Wade <jpswade@gmail.com>
 
-# Install gd, iconv, mbstring, mcrypt, mysql, soap, sockets, zip, and zlib extensions
+# Install gd, iconv, mbstring, mysql, soap, sockets, zip, and zlib extensions
 # see example at https://hub.docker.com/_/php/
 RUN apt-get update && apt-get install -y \
         libbz2-dev \
