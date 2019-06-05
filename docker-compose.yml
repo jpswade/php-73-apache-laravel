@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306"
+    env_file: .env
+
+  web:
+    build: .
+    link:
+      - mysql
+    ports:
+      - "8080:80"
+    restart: always
+    env_file: .env
+    volumes:
+      - ./public:/var/www/html
+
+volumes:
+  db_data:
