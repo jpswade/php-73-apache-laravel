@@ -24,13 +24,9 @@ VOLUME /var/www/html/
 
 # In images building upon this image, copy the src/ directory to the webserver
 # root and correct the owner.
-ONBUILD COPY / /var/www/html/
+ONBUILD COPY /public /var/www/html/
 ONBUILD RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
-
-ENTRYPOINT ["docker-php-entrypoint"]
-
-CMD ["apache2-foreground"]
 
 #EOF
