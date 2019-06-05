@@ -12,7 +12,7 @@ services:
 
   web:
     build: .
-    link:
+    links:
       - mysql
     ports:
       - "8080:80"

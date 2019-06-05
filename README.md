@@ -17,10 +17,15 @@ Docker Hub Login
 
 - `docker build . -t php-73-apache-laravel`
 
-## Running
+## Using Docker
 
 - Shell: `docker run -it php-73-apache-laravel bash`
 - Server: `docker run -d -p 80:80 --name my-laravel-app -v "$PWD/public":/var/www/html php-73-apache-laravel`
+
+### Using Docker Compose
+
+- `cp .env.example .env`
+- `docker-compose up -d --build`
 
 ## Maintainer
 
