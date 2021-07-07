@@ -14,13 +14,14 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
     && docker-php-ext-install iconv mbstring mysqli soap sockets zip \
     && docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd
+    && docker-php-ext-install gd bcmath
 
 # enable mod_rewrite
 RUN a2enmod rewrite
 
 # make the webroot a volume
 VOLUME /var/www/html/
+WORKDIR /var/www/html/
 
 EXPOSE 80
 
